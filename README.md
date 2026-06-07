@@ -1,16 +1,42 @@
-# React + Vite
+# AI Email Assistant - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React frontend for the AI Email Assistant application.
 
-Currently, two official plugins are available:
+## 🚀 Tech Stack
+- **Framework:** React 18 + Vite
+- **Styling:** Bootstrap 5
+- **HTTP Client:** Axios
+- **Routing:** React Router DOM
+- **Auth:** @react-oauth/google
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features
+- Google OAuth login
+- Dashboard with email stats
+- Inbox with Gmail sync
+- AI-powered email composer
+- Email improvement tool
+- AI reply generator
+- Subject line suggestions
+- Multi-user support
 
-## React Compiler
+## 📦 Installation
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 1. Clone the repository
+git clone https://github.com/rajatsharma09302005-source/ai-email-assistant-frontend.git
+cd ai-email-assistant-frontend
 
-## Expanding the ESLint configuration
+### 2. Install dependencies
+npm install
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 3. Create .env file
+VITE_API_URL=http://localhost:8000
+VITE_GOOGLE_CLIENT_ID=your-google-client-id
+
+### 4. Start development server
+npm run dev
+
+### 5. Open browser
+http://localhost:5173
+
+## 👨‍💻 Developer
+Rajat Sharma - B.Tech CSE, Vision Institute of Technology
