@@ -1,44 +1,49 @@
-import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { GoogleLogin } from '@react-oauth/google'
-import { useAuth } from '../context/AuthContext'
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { GoogleLogin } from "@react-oauth/google";
+import { useAuth } from "../context/AuthContext";
 
 const Login = () => {
-  const { login, isAuthenticated } = useAuth()
-  const navigate = useNavigate()
+  const { login, isAuthenticated } = useAuth();
+  const navigate = useNavigate();
 
   // Redirect if already logged in
   useEffect(() => {
     if (isAuthenticated) {
-      navigate('/dashboard')
+      navigate("/dashboard");
     }
-  }, [isAuthenticated, navigate])
+  }, [isAuthenticated, navigate]);
 
   const handleGoogleSuccess = async (credentialResponse) => {
-    const result = await login(credentialResponse.credential)
+    const result = await login(credentialResponse.credential);
     if (result.success) {
-      navigate('/dashboard')
+      navigate("/dashboard");
     } else {
-      alert('Login failed: ' + result.error)
+      alert("Login failed: " + result.error);
     }
-  }
+  };
 
   const handleGoogleError = () => {
-    alert('Google login failed. Please try again.')
-  }
+    alert("Google login failed. Please try again.");
+  };
 
   return (
     <div
       className="min-vh-100 d-flex align-items-center justify-content-center"
-      style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}
+      style={{
+        background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      }}
     >
-      <div className="card shadow-lg border-0 rounded-4" style={{ width: '420px' }}>
+      <div
+        className="card shadow-lg border-0 rounded-4"
+        style={{ width: "420px" }}
+      >
         <div className="card-body p-5 text-center">
           {/* Logo */}
           <div className="mb-4">
             <div
               className="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
-              style={{ width: '70px', height: '70px' }}
+              style={{ width: "70px", height: "70px" }}
             >
               <i className="bi bi-envelope-fill text-white fs-2"></i>
             </div>
@@ -49,10 +54,10 @@ const Login = () => {
           {/* Features list */}
           <div className="text-start mb-4">
             {[
-              { icon: 'bi-magic', text: 'AI-powered email composition' },
-              { icon: 'bi-envelope-check', text: 'Smart reply generation' },
-              { icon: 'bi-stars', text: 'Tone & style control' },
-              { icon: 'bi-google', text: 'Gmail integration' },
+              { icon: "bi-magic", text: "AI-powered email composition" },
+              { icon: "bi-envelope-check", text: "Smart reply generation" },
+              { icon: "bi-stars", text: "Tone & style control" },
+              { icon: "bi-google", text: "Gmail integration" },
             ].map((feature, i) => (
               <div key={i} className="d-flex align-items-center gap-2 mb-2">
                 <i className={`bi ${feature.icon} text-primary`}></i>
@@ -66,7 +71,7 @@ const Login = () => {
             <GoogleLogin
               onSuccess={handleGoogleSuccess}
               onError={handleGoogleError}
-              useOneTap
+              useOneTap={false}
               theme="outline"
               size="large"
               text="signin_with"
@@ -80,7 +85,7 @@ const Login = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
